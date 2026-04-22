@@ -9,7 +9,7 @@ import {
   SQSClient,
 } from "@aws-sdk/client-sqs";
 
-const sqsClient = new SQSClient({ endpoint: process.env.LOCALSTACK_ENDPOINT });
+const sqsClient = new SQSClient({ endpoint: process.env.SQS_ENDPOINT });
 
 beforeAll(async () => {
   await createSqsQueue();

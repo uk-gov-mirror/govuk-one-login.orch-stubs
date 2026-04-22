@@ -44,8 +44,6 @@ export const validatePlainTextParameters = (
   }
 
   if (body["redirect_uri"] !== redirectUri) {
-    console.log(body);
-    console.log(body["redirect_uri"]);
     throw new CodedError(
       400,
       "Request redirect_uri is not the permitted redirect_uri"
