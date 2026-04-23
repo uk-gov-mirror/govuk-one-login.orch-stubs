@@ -1,6 +1,6 @@
 import { Context } from "aws-lambda";
 import { handler } from "./auth-userinfo";
-import * as requestHeaderHelper from "./helpers/request-header-helper";
+import * as requestHeaderHelper from "../util/request-header-helper";
 import * as accessTokenDynamoDbService from "./services/access-token-dynamodb-service";
 import * as userProfileDynamoDbService from "./services/user-profile-dynamodb-service";
 import { PutCommandOutput } from "@aws-sdk/lib-dynamodb";

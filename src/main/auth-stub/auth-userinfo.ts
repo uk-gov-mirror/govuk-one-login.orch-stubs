@@ -7,7 +7,7 @@ import { CodedError, handleErrors } from "../helper/result-helper";
 import {
   getAccessTokenFromAuthorizationHeader,
   getHeaderValueFromHeaders,
-} from "./helpers/request-header-helper";
+} from "../util/request-header-helper";
 import { AccessTokenStore } from "./interfaces/access-token-store-interface";
 import {
   getAccessTokenStore,
