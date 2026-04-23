@@ -7,7 +7,11 @@ import { addAccessTokenStore } from "./services/access-token-dynamodb-service";
 import { createAccessTokenStoreInput } from "./helpers/mock-token-data-helper";
 import { updateHasBeenUsedAuthCodeStore } from "./services/auth-code-dynamodb-service";
 import { createBearerAccessToken } from "./helpers/create-token-helper";
-import { CodedError, handleErrors } from "../helper/result-helper";
+import {
+  CodedError,
+  createJsonResult,
+  handleErrors,
+} from "../helper/result-helper";
 import { logger } from "../logger";
 import {
   ensureClientAssertionType,
@@ -27,12 +31,9 @@ export const handler: Handler = async (
       case "POST":
         return await post(event);
       default:
-        return {
-          statusCode: 405,
-          body: JSON.stringify({
-            message: "Method not allowed",
-          }),
-        };
+        return createJsonResult(405, {
+          message: "Method not allowed",
+        });
     }
   });
 };
@@ -70,13 +71,7 @@ async function post(
     throw new CodedError(500, `dynamoDb error: ${error}`);
   }
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(accessToken),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+  return createJsonResult(200, accessToken);
 }
 
 function getBody(event: APIGatewayProxyEvent) {
