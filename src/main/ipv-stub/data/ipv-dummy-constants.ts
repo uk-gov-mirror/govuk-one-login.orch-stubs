@@ -1,12 +1,5 @@
+import { ROOT_URI } from "../../constants.ts";
 import { UserIdentity } from "../../shared-identity/interfaces/user-identity-interface.ts";
-
-const env =
-  process.env.ENVIRONMENT == "dev" ? "authdev3.dev" : process.env.ENVIRONMENT;
-
-export const AUTH_CODE = "12345";
-
-export const ROOT_URI =
-  process.env.ORCH_BASE_URL || `https://oidc.${env}.account.gov.uk`;
 
 export const USER_IDENTITY: UserIdentity = {
   sub: "urn:fdc:gov.uk:2022:740e5834-3a29-46b4-9a6f-16142fde533a",

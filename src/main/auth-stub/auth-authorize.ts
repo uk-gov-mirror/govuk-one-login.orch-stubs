@@ -20,11 +20,11 @@ import {
   createHtmlResult,
   createJsonResult,
 } from "../helper/result-helper.ts";
-import { ROOT_URI } from "./data/auth-dummy-constants.ts";
 import { createUserPofile } from "./helpers/mock-token-data-helper.ts";
 import renderAuthAuthorize from "./render-auth-authorize.ts";
 import { AuthRequestBody } from "./interfaces/auth-request-body-interface.ts";
 import { logger } from "../logger.ts";
+import { ROOT_URI } from "../constants.ts";
 
 const SFAD_ERROR = "SFAD_ERROR";
 const AUTHORIZE_ERRORS: string[] = [SFAD_ERROR];
